@@ -1,0 +1,41 @@
+tags:
+    - 请求服务
+definitions:
+  RowID:
+    type: string
+  RequestDef:
+    type: object
+    description: 请求参数定义
+    properties:
+      params:
+        type: object
+        properties:
+          path:
+            type: object
+          query:
+            type: object
+          body:
+            type: object
+
+
+parameters:
+  - name: service_id
+    in: path
+    type: string
+    required: true
+    description: 服务唯一标识，在创建的时候指定，必须仅包括URL字符
+  - name: body
+    in: body
+    description: 查询条件
+    required: false
+    schema:
+      $ref: '#/definitions/RequestDef'
+
+produces:
+  - application/json
+
+responses:
+  200:
+    description: 返回查询结果
+    schema:
+      $ref: '#/definitions/ResultQuery'

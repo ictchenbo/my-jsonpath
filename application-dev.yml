@@ -1,0 +1,11 @@
+corenlu:
+  service:  http://10.60.1.101:5000/predict
+
+golaxy_nlu:
+  service:
+    ner: http://localhost:48021/ners
+    event: http://localhost:48022/events
+    relation: http://localhost:48023/relations
+  langs:
+    zh: chinese
+    en: english

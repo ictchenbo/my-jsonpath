@@ -1,0 +1,5 @@
+{
+        "$root": "$.data",
+        "$select": ["ent_name", "ent_type"],
+        "$union": "$[2]"
+}

@@ -1,0 +1,16 @@
+$
+$.code
+$.data.ner
+$.data.ner.info[0].$keys
+$.data.events.$length
+$.data.events.$keys[0]
+$.data[1].2[2].3[3].4[4].5[5]
+$."data.23[]"[0].234
+$."aaabbb
+$.[
+$[
+$]
+$.a.b[0][2]]
+$.data.events.$keys[0]
+$.data.ner.$keys[0]
+$.data.events.$len

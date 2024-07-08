@@ -1,0 +1,913 @@
+{
+    "entity": [
+      {"id": "PERSON", "name": "人名"},
+      {"id": "NORP", "name": "民族/宗教/政治团体"},
+      {"id": "FAC", "name": "建筑物/机场/高速公路/桥梁"},
+      {"id": "ORG", "name": "公司/机构/组织"},
+      {"id": "GPE", "name": "行政区/国家/城市/州"},
+      {"id": "LOC", "name": "山脉/水体"},
+      {"id": "PRODUCT", "name": "车辆/武器/食品"},
+      {"id": "EVENT", "name": "事件/战争/赛事"},
+      {"id": "WORK OF ART", "name": "作品"},
+      {"id": "LAW", "name": "法律/条文"},
+      {"id": "LANGUAGE", "name": "语言"},
+      {"id": "DATE", "name": "日期"},
+      {"id": "TIME", "name": "时间"},
+      {"id": "PERCENT", "name": "百分比"},
+      {"id": "MONEY", "name": "金额"},
+      {"id": "QUANTITY", "name": "数量"},
+      {"id": "ORDINAL", "name": "序号"},
+      {"id": "CARDINAL", "name": "基"}
+    ],
+    "relation": [
+      {"id": "Cause-Effect", "name": "因果" },
+      {"id": "Entity-Destination", "name": "去向" },
+      {"id": "Content-Container", "name": "包含" },
+      {"id": "Instrument-Agency", "name": "因果" },
+      {"id": "Component-Whole", "name": "部分" },
+      {"id": "Entity-Origion", "name": "来自" },
+      {"id": "Product-Producer", "name": "制造" },
+      {"id": "Member-Collection", "name": "成员" },
+      {"id": "Message-Topic", "name": "话题" }
+    ],
+  "event": [
+    {
+      "id": "Life",
+      "name": "生命",
+      "subtypes": [
+        {
+          "id": "Beborn",
+          "name": "诞生",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "人物"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Marry",
+          "name": "结婚",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "人物"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Divorce",
+          "name": "离婚",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "人物"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Injure",
+          "name": "伤害",
+          "arguments": [
+            {
+              "id": "Agent",
+              "name": "加害者"
+            },
+            {
+              "id": "Victim",
+              "name": "受害者"
+            },
+            {
+              "id": "Instrument",
+              "name": "器械"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Die",
+          "name": "死亡",
+          "arguments": [
+            {
+              "id": "Agent",
+              "name": "杀人者"
+            },
+            {
+              "id": "Victim",
+              "name": "受害者"
+            },
+            {
+              "id": "Instrument",
+              "name": "器械"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Movement",
+      "name": "移动",
+      "subtypes": [
+        {
+          "id": "Transport",
+          "name": "运输",
+          "arguments": [
+            {
+              "id": "Agent",
+              "name": "负责者"
+            },
+            {
+              "id": "Artifact",
+              "name": "传输主体"
+            },
+            {
+              "id": "Vehicle",
+              "name": "交通工具"
+            },
+            {
+              "id": "Price",
+              "name": "价格"
+            },
+            {
+              "id": "Origin",
+              "name": "出发地"
+            },
+            {
+              "id": "Destination",
+              "name": "目的地"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Transaction",
+      "name": "交易",
+      "subtypes": [
+        {
+          "id": "Transfer-ownership",
+          "name": "所有权交易",
+          "arguments": [
+            {
+              "id": "Buyer",
+              "name": "买方"
+            },
+            {
+              "id": "Seller",
+              "name": "卖方"
+            },
+            {
+              "id": "Beneficiary",
+              "name": "受益人"
+            },
+            {
+              "id": "Artifact-Arg",
+              "name": "产品"
+            },
+            {
+              "id": "Price",
+              "name": "价格"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Transfer-money",
+          "name": "金钱交易",
+          "arguments": [
+            {
+              "id": "Giver",
+              "name": "给予方"
+            },
+            {
+              "id": "Recipient",
+              "name": "接收方"
+            },
+            {
+              "id": "Beneficiary",
+              "name": "受益方"
+            },
+            {
+              "id": "Money",
+              "name": "金额"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Business",
+      "name": "商业",
+      "subtypes": [
+        {
+          "id": "Start-org",
+          "name": "组织创建",
+          "arguments": [
+            {
+              "id": "Agent",
+              "name": "负责人"
+            },
+            {
+              "id": "Org",
+              "name": "组织"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Merge-org",
+          "name": "组织合并",
+          "arguments": [
+            {
+              "id": "Org",
+              "name": "组织"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Declare-bankruptcy",
+          "name": "宣布破产",
+          "arguments": [
+            {
+              "id": "Org",
+              "name": "组织"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "End-org",
+          "name": "组织结束",
+          "arguments": [
+            {
+              "id": "Org",
+              "name": "组织"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Conflict",
+      "name": "冲突",
+      "subtypes": [
+        {
+          "id": "Attack",
+          "name": "攻击",
+          "arguments": [
+            {
+              "id": "Attacker",
+              "name": "攻击者"
+            },
+            {
+              "id": "Target",
+              "name": "目标"
+            },
+            {
+              "id": "Instrument",
+              "name": "器械"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Demonstrate",
+          "name": "游行示威",
+          "arguments": [
+            {
+              "id": "Entity",
+              "name": "实体"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Contact",
+      "name": "联系",
+      "subtypes": [
+        {
+          "id": "Meet",
+          "name": "会面",
+          "arguments": [
+            {
+              "id": "Entity",
+              "name": "实体"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Phone-write",
+          "name": "电话-书信",
+          "arguments": [
+            {
+              "id": "Entity",
+              "name": "实体"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Personell",
+      "name": "人脉",
+      "subtypes": [
+        {
+          "id": "Start-position",
+          "name": "就任职位",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "人物"
+            },
+            {
+              "id": "Entity",
+              "name": "实体"
+            },
+            {
+              "id": "Position",
+              "name": "职位"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "End-position",
+          "name": "结束职位",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "人物"
+            },
+            {
+              "id": "Entity",
+              "name": "实体"
+            },
+            {
+              "id": "Position",
+              "name": "职位"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Nominate",
+          "name": "提名",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "被提名者"
+            },
+            {
+              "id": "Agent",
+              "name": "提名者"
+            },
+            {
+              "id": "Position",
+              "name": "提名职称"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Elect",
+          "name": "选举",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "被选举人"
+            },
+            {
+              "id": "Entity",
+              "name": "投票方"
+            },
+            {
+              "id": "Position",
+              "name": "提名职称"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Justice",
+      "name": "司法",
+      "subtypes": [
+        {
+          "id": "Arrest-jail",
+          "name": "逮捕/监禁",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "被逮捕/监禁的人"
+            },
+            {
+              "id": "Agent",
+              "name": "逮捕/监禁方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Release-parole",
+          "name": "释放/假释",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "被释放/假释的人"
+            },
+            {
+              "id": "Entity",
+              "name": "原逮捕方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Trial-hearing",
+          "name": "审讯",
+          "arguments": [
+            {
+              "id": "Defendant",
+              "name": "被告方"
+            },
+            {
+              "id": "Prosecutor",
+              "name": "起诉方"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Charge-indict",
+          "name": "起诉",
+          "arguments": [
+            {
+              "id": "Defendant",
+              "name": "被告方"
+            },
+            {
+              "id": "Prosecutor",
+              "name": "起诉方"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Sue",
+          "name": "控告",
+          "arguments": [
+            {
+              "id": "Plaintiff",
+              "name": "原告方"
+            },
+            {
+              "id": "Defendant",
+              "name": "被告方"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Convict",
+          "name": "定罪",
+          "arguments": [
+            {
+              "id": "Defendant",
+              "name": "被告方"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Sentence",
+          "name": "判决",
+          "arguments": [
+            {
+              "id": "Defendant",
+              "name": "被告方"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Sentence",
+              "name": "判决"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Fine",
+          "name": "罚款",
+          "arguments": [
+            {
+              "id": "entity",
+              "name": "被罚款者"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Money",
+              "name": "罚款"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Execute",
+          "name": "处死",
+          "arguments": [
+            {
+              "id": "Person",
+              "name": "被处死者"
+            },
+            {
+              "id": "Agent",
+              "name": "执行者"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Extradite",
+          "name": "引渡",
+          "arguments": [
+            {
+              "id": "Agent",
+              "name": "引渡人"
+            },
+            {
+              "id": "Person",
+              "name": "被引渡人"
+            },
+            {
+              "id": "Destination",
+              "name": "引渡目的地"
+            },
+            {
+              "id": "Origin",
+              "name": "被引渡人原址"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Acquit",
+          "name": "无罪释放",
+          "arguments": [
+            {
+              "id": "Defendant",
+              "name": "被告方"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Appeal",
+          "name": "赦免",
+          "arguments": [
+            {
+              "id": "Defendant",
+              "name": "被告方"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        },
+        {
+          "id": "Pardon",
+          "name": "上诉",
+          "arguments": [
+            {
+              "id": "Defendant",
+              "name": "被告方"
+            },
+            {
+              "id": "Prosecutor",
+              "name": "起诉方"
+            },
+            {
+              "id": "Adjudicator",
+              "name": "判决方"
+            },
+            {
+              "id": "Crime",
+              "name": "罪行"
+            },
+            {
+              "id": "Time",
+              "name": "时间"
+            },
+            {
+              "id": "Place",
+              "name": "地点"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

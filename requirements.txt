@@ -1,0 +1,5 @@
+pyyaml
+jsonpath2>=0.4.5
+Flask==1.1.2
+flasgger==0.9.5
+requests

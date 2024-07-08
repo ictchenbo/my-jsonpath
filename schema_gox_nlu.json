@@ -1,0 +1,82 @@
+{
+  "entity": [
+    {
+        "name": "人物",
+        "propoty": ["英文名称", "性别", "出生日期", "民族", "文化水平", "籍贯", "居住地", "犯罪地点"]
+    },
+    {
+        "name": "组织机构",
+        "propoty": ["英文名称", "成立时间", "职能", "编制", "组织所属省市", "组织类别"]
+    },
+    {
+        "name": "武器装备",
+        "propoty": ["研制时间", "长度", "重量", "速度", "续航距离及射程", "排水量"]
+    },
+    {
+        "name": "项目",
+        "propoty": ["项目经理"]
+    },
+    {
+        "name": "作战概念",
+        "propoty": ["英文名称", "定义内涵"]
+    },
+    {
+        "name": "军事文件"
+    },
+    {
+        "name": "学校"
+    },
+    {
+        "name": "地区",
+        "propoty": ["地区所属省市"]
+    },
+
+    {
+        "name": "案件",
+        "propoty": ["案号", "案件类型", "审判程序", "案由", "立案日期", "结案日期", "涉案金额"]
+    },
+    {
+        "name": "审理结果",
+        "propoty": ["处罚人", "罪名", "刑期", "罚金"]
+    }
+  ],
+  "relation": [
+    {"object_type": "国家", "predicate": "国籍", "subject_type": "人物"},
+    {"object_type": "Date", "predicate": "出生日期", "subject_type": "人物"},
+    {"object_type": "地点", "predicate": "出生地", "subject_type": "人物"},
+    {"object_type": "学校", "predicate": "毕业院校", "subject_type": "人物"},
+    {"object_type":"职位","predicate":"职务","subject_type":"人物"},
+    {"object_type":"军衔","predicate":"军级","subject_type":"人物"},
+    {"object_type":"组织机构","predicate":"任职","subject_type":"人物"},
+    {"object_type":"领域","predicate":"专业领域","subject_type":"人物"},
+    {"object_type": "Text", "predicate": "民族", "subject_type": "人物"},
+    {"object_type": "Number", "predicate": "身高", "subject_type": "人物"},
+    {"object_type": "地点", "predicate": "祖籍", "subject_type": "人物"},
+    {"object_type": "人物", "predicate": "父亲", "subject_type": "人物"},
+    {"object_type": "人物", "predicate": "丈夫", "subject_type": "人物"},
+    {"object_type": "人物", "predicate": "母亲", "subject_type": "人物"},
+    {"object_type": "人物", "predicate": "妻子", "subject_type": "人物"},
+    {"object_type": "Text", "predicate": "朝代", "subject_type": "历史人物"},
+    {"object_type": "Text", "predicate": "号", "subject_type": "历史人物"},
+    {"object_type": "Text", "predicate": "字", "subject_type": "历史人物"},
+    {"object_type": "地点", "predicate": "城市", "subject_type": "国家"},
+    {"object_type": "语言", "predicate": "官方语言", "subject_type": "国家"},
+    {"object_type": "地点", "predicate": "首都", "subject_type": "国家"},
+    {"object_type":"国家","predicate":"对手","subject_type":"国家"},
+    {"object_type":"国家","predicate":"同盟","subject_type":"国家"},
+    {"object_type":"人物","predicate":"现任领导","subject_type":"国家"},
+    {"object_type":"地点","predicate":"热点地区","subject_type":"国家"},
+    {"object_type":"人物","predicate":"负责人","subject_type":"组织机构"},
+    {"object_type": "人物", "predicate": "创始人", "subject_type": "组织机构"},
+    {"object_type":"人物","predicate":"成员","subject_type":"组织机构"},
+    {"object_type":"组织机构","predicate":"机构别称","subject_type":"组织机构"},
+    {"object_type":"地点","predicate":"地址","subject_type":"组织机构"},
+    {"object_type":"Date","predicate":"成立时间","subject_type":"组织机构"},
+    {"object_type":"组织机构","predicate":"隶属机构","subject_type":"组织机构"},
+    {"object_type":"国家","predicate":"所属国家-rel","subject_type":"组织机构"},
+    {"object_type": "Text", "predicate": "简称", "subject_type": "组织机构"},
+    {"object_type": "地点", "predicate": "总部地点", "subject_type": "组织机构"},
+    {"object_type": "Number", "predicate": "注册资本", "subject_type": "组织机构"},
+    {"object_type": "人物", "predicate": "董事长", "subject_type": "组织机构"}
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "code": 20000,
+  "msg": "abcde",
+  "data": {
+    "ner": {
+      "name": "aaa",
+      "type": "person",
+      "start": 5,
+      "end": 7,
+      "info": ["abc"]
+    },
+    "events": [
+       "type", "subtype", "trigger"
+    ],
+    "ent_name": [
+      "a", "b", "c"
+    ],
+    "ent_type": [
+      "person", "loc", "org"
+    ]
+  }
+}
